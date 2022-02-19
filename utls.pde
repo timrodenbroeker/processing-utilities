@@ -1,4 +1,4 @@
-// trcc utilities version 1.0.1
+// trcc Processing utilities version 1.0.1
 
 import com.hamoid.*;
 VideoExport videoExport;
@@ -45,9 +45,13 @@ String timestamp() {
  ------------------------------------------
  */
 
-void rec(int rate, int dur) {
+void rec(int rate, int dur, boolean addTimestamp) {
   if (frameCount == 1) {
-    videoExport = new VideoExport(this, "../"+sketchname+".mp4");
+    if (addTimestamp == false) {
+      videoExport = new VideoExport(this, "../"+sketchname+".mp4");
+    } else {
+      videoExport = new VideoExport(this, "../" + sketchname + timestamp() + ".mp4");
+    }
     videoExport.setFrameRate(rate);
     videoExport.startMovie();
   }
