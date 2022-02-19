@@ -1,4 +1,4 @@
-// trcc Processing utilities version 1.0.1
+// trcc Processing utilities
 
 import com.hamoid.*;
 VideoExport videoExport;
@@ -84,6 +84,7 @@ void thumb(int count) {
 
 void rImg(int stop) {
   saveFrame("out/####.png");
+  println("rendering frame " + frameCount);
   if (frameCount == stop) {
     exit();
   }
